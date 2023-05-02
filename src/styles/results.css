@@ -1,0 +1,12 @@
+body {
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+table.mat-table {
+    table-layout: fixed;
+    width: 100%;
+    display: table;
+}
