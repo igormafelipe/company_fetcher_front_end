@@ -30,12 +30,18 @@ const Results = () => {
             field: "company", 
             emptyValue: () => <em>null</em> 
         },
-        {   title: "url", 
+        {   title: "Application Link", 
             field: "url", 
             emptyValue: () => <em>null</em>, 
             sorting: false, 
             searchable: false,
-            render:rowData=><div><Link to={rowData.url}>url</Link></div>
+            render:rowData=><div>
+                                <Link to={rowData.url} 
+                                      target="_blank"
+                                      style={{ color: 'blue', textDecoration: 'none' }}>
+                                    Application
+                                </Link>
+                            </div>
         },
     ];
     
