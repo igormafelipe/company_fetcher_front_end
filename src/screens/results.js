@@ -13,20 +13,21 @@ const Results = () => {
     const {state} = useLocation();
 
     const columns = [
-        {   title: "locations", 
+        {   title: "Locations", 
             field: "locations", 
             emptyValue: () => <em>null</em> 
         },
-        {   title: "date", 
+        {   title: "Date", 
             field: "date", 
             emptyValue: () => <em>null</em>, 
-            searchable: false 
+            searchable: false,
+            sorting: false,
         },
-        {   title: "title", 
+        {   title: "Title", 
             field: "title", 
             emptyValue: () => <em>null</em> 
         },
-        {   title: "company", 
+        {   title: "Company", 
             field: "company", 
             emptyValue: () => <em>null</em> 
         },
@@ -77,7 +78,7 @@ const Results = () => {
     const defaultMaterialTheme = createTheme();
     if (state && state.data) {
         return (
-            <div class="a">
+            <div class="containerStyles">
                 <ThemeProvider theme={defaultMaterialTheme}>
                     <MaterialTable
                         title = "Found Positions"
@@ -89,7 +90,6 @@ const Results = () => {
                                     exportAllData: true, 
                                     exportFileName: "results", 
                                     pageSize: 10, 
-                                    pageSizeOptions: [10, 20, 50, 100], 
                                     emptyRowsWhenPaging: false,
                                     showFirstLastPageButtons: false,
                                     tableLayout: "fixed",
@@ -97,6 +97,9 @@ const Results = () => {
                                                     color: "#FFF",
                                                     fontSize: "medium",
                                                     fontWeight: "bold"},
+                                minRows: 10,
+                                minBodyHeight: "80vh",
+                                maxBodyHeight: "80vh",
                                     
                         }}
                     />
