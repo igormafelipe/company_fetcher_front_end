@@ -17,9 +17,9 @@ const Form = () => {
     ];
 
     const seniorityOptions = [
-        { value: 'entry level', label: 'Entry Level' },
-        { value: 'mid level', label: 'Mid Level' },
-        { value: 'senior level', label: 'Senior Level' },
+        { value: 'entry', label: 'Entry Level' },
+        { value: 'junior', label: 'Mid Level' },
+        { value: 'senior', label: 'Senior Level' },
     ];
 
     const positionTypeOptions = [
@@ -49,8 +49,7 @@ const Form = () => {
             }
         }
 
-        
-
+        console.log(keywords_exclude)
         await axios({
         method: "GET",
         url: "http://igormafelipe.pythonanywhere.com/getjobs",
