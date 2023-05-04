@@ -82,7 +82,9 @@ const Results = () => {
             <div class="containerStyles">
                 <ThemeProvider theme={defaultMaterialTheme}>
                     <MaterialTable
-                        title = {<Link to="/"><ArrowBackIcon></ArrowBackIcon></Link>}
+                        title = {<Link to="/" style={{color: "black", textDecoration: "none"}}>
+                                    <ArrowBackIcon/>
+                                </Link>}
                         data = {state.data}
                         columns={columns}
                         components={{ 
