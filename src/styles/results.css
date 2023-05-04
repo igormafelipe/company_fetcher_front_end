@@ -1,12 +1,23 @@
-body {
+.body {
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: #31507E(0, 0, 0);
     display: flex;
-    justify-content: center;
+}
+
+.containerStyles {
+    background-color: #15172b;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
 }
 
 table.mat-table {
     table-layout: fixed;
     width: 100%;
     display: table;
+}
+
+bc {
+    font-size: 44px;
 }

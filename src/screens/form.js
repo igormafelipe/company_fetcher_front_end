@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import '../styles/form.css';
 
 const Form = () => {
-    const { register, handleSubmit, control } = useForm();
+    const { register, handleSubmit, formState: { isValid } } = useForm();
+    const bg_img = require('../assets/form_bg_chars.jpg');
     const navigate = useNavigate();
 
     const countryOptions = [
@@ -71,49 +72,54 @@ const Form = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(getData)} class="form">
-            <div class="title">Welcome</div>
-            <div class="subtitle">Let's find jobs that actually sponsor!</div>
-            <br/>
-            <label>
-                <p class="subtitle">Country</p>
-                <select {...register("location", { required: true })} class="input">
-                    {countryOptions.map((option) => (
-                        <option value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-            </label>
-            <br/>
-            <label>
-                <p class="subtitle">Position</p>
-                <input {...register("position", { required: true })} class="input"/>
-            </label>
-            <br/>
-            <label>
-                <p class="subtitle">Seniority</p>
-                <select {...register("seniority", { required: true })} class="input">
-                    {seniorityOptions.map((option) => (
-                        <option value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-            </label>
-            <br/>
-            <label>
-                <p class="subtitle">Position Type</p>
-                <select {...register("position_type", { required: true })} class="input">
-                    {positionTypeOptions.map((option) => (
-                        <option value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-            </label>
-            <input type="submit" class="submit"/>
-        </form>
+        <div class="body">
+            {/* <img src={bg_img} class="bg_char_img"/> */}
+            <form onSubmit={handleSubmit(getData)} class="form">
+                <div class="title">Welcome</div>
+                <div class="subtitle">Let's find jobs that actually sponsor!</div>
+                <br/>
+                <label>
+                    <p class="subtitle">Country</p>
+                    <select {...register("location", { required: true })} class="input">
+                        {countryOptions.map((option) => (
+                            <option value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <br/>
+                <label>
+                    <p class="subtitle">Position</p>
+                    <input {...register("position", { required: true })} 
+                            class="input"
+                            placeholder="Software Engineer"/>
+                </label>
+                <br/>
+                <label>
+                    <p class="subtitle">Seniority</p>
+                    <select {...register("seniority", { required: true })} class="input">
+                        {seniorityOptions.map((option) => (
+                            <option value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <br/>
+                <label>
+                    <p class="subtitle">Position Type</p>
+                    <select {...register("position_type", { required: true })} class="input">
+                        {positionTypeOptions.map((option) => (
+                            <option value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <input type="submit" class={isValid ? "submit-active" : "submit"}/>
+            </form>
+        </div>
     );
 }
 

@@ -7,6 +7,7 @@ import 'material-icons/iconfont/material-icons.css';
 import { Grid, IconButton, Typography } from '@mui/material';
 import PrevIcon from '@mui/icons-material/ChevronLeft';
 import NextIcon from '@mui/icons-material/ChevronRight';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Results = () => {
   // Columns for table
@@ -74,17 +75,21 @@ const Results = () => {
             </td>
             ); 
         };
-    
+
     const defaultMaterialTheme = createTheme();
     if (state && state.data) {
         return (
             <div class="containerStyles">
                 <ThemeProvider theme={defaultMaterialTheme}>
                     <MaterialTable
-                        title = "Found Positions"
+                        title = {<Link to="/"><ArrowBackIcon></ArrowBackIcon></Link>}
                         data = {state.data}
                         columns={columns}
-                        components={{ Pagination: (props) => { return <CustomPaginationComponent {...props} />; }, }}
+                        components={{ 
+                            Pagination: (props) => { 
+                                return <CustomPaginationComponent {...props} />; 
+                            }, 
+                        }}
                         options={{  searchFieldVariant: "outlined", 
                                     exportButton: true, 
                                     exportAllData: true, 
@@ -108,9 +113,11 @@ const Results = () => {
         );
     } else {
         return (
-            <div>
-                <p>Something went wrong!</p>
-                <Link to="/">Return to home page</Link>
+            <div style={{color: "red", textAlign:"center"}}>
+                <h2>Wooops... Something went wrong</h2>
+                <Link to="/" style={{color: "white", textDecoration: "none"}}>
+                    <h3>Return to home page</h3>
+                </Link>
             </div>
         );
     }
