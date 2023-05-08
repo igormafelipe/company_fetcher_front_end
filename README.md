@@ -26,8 +26,8 @@ The table displays the job listings returned by the Career Jet API, with columns
 ## Contributing
 If you would like to contribute to this project, please follow these steps:
 
-Fork the repository
-Create a new branch for your changes: git checkout -b my-new-feature
-Make changes and commit them: git commit -am 'Add some feature'
-Push to the branch: git push origin my-new-feature
-Submit a pull request
+1. Fork the repository
+2. Create a new branch for your changes: git checkout -b my-new-feature
+3. Make changes and commit them: git commit -am 'Add some feature'
+4. Push to the branch: git push origin my-new-feature
+5. Submit a pull request
