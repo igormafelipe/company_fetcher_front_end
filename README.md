@@ -15,7 +15,6 @@ To get started with this project, follow these steps:
 
 1. Clone the repository
 2. Install dependencies: npm install
-3. Add your Career Jet API key to the src/config.js file.
 4. Start the development server: npm start
 
 ## Usage
