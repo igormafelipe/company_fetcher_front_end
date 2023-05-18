@@ -9,6 +9,12 @@ import PrevIcon from '@mui/icons-material/ChevronLeft';
 import NextIcon from '@mui/icons-material/ChevronRight';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+const compareDates = (dateA, dateB) => {
+    const a = new Date(dateA);
+    const b = new Date(dateB);
+    return a - b;
+  };
+
 const Results = () => {
   // Columns for table
     const {state} = useLocation();
@@ -22,7 +28,7 @@ const Results = () => {
             field: "date", 
             emptyValue: () => <em>null</em>, 
             searchable: false,
-            sorting: false,
+            customSort: (a, b) => compareDates(a.date, b.date),
         },
         {   title: "Title", 
             field: "title", 

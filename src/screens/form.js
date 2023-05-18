@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import SyncLoader from 'react-spinners/SyncLoader';
 import '../styles/form.css';
+import affiliate_id from '../config';
 
 const Form = () => {
     const { register, handleSubmit, formState: { isValid } } = useForm();
@@ -57,12 +58,13 @@ const Form = () => {
             location: data.location,
             keywords_include: data.position,
             keywords_exclude: keywords_exclude.join(","),
+            affiliate_id: affiliate_id,
         },
         })
         .then((response) => {
             const res = response.data;
             setLoading(false);
-            navigate('results', { state: { data: res } })
+            navigate('results', { state: { data: res.jobs } })
         })
         .catch((error) => {
             if (error.response) {
